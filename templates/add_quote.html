@@ -1,91 +1,105 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add a Quote</title>
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <!-- Bootstrap CSS link -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-      body {
-        background-color: #f8f9fa;
-        padding-top: 40px;
-      }
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding-top: 40px;
+        }
 
-      .container {
-        max-width: 500px;
-        margin: 0 auto;
-      }
+        .container {
+            max-width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
 
-      h1 {
-        text-align: center;
-        margin-bottom: 20px;
-      }
+        h1 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
 
-      form {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
+        form {
+            padding: 0 20px;
+            margin-bottom: 20px;
+        }
 
-      .form-group {
-        margin-bottom: 20px;
-      }
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-      label {
-        font-weight: bold;
-      }
+        label {
+            font-weight: bold;
+        }
 
-      textarea {
-        resize: vertical;
-      }
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
 
-      button[type="submit"] {
-        width: 100%;
-        background-color: #007bff;
-        border-color: #007bff;
-      }
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-      button[type="submit"]:hover {
-        filter: brightness(90%);
-      }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
 
-      .cancel-link {
-        display: block;
-        text-align: center;
-      }
+        .cancel-link {
+            display: block;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .cancel-link:hover {
+            color: #0056b3;
+        }
     </style>
-  </head>
-
-  <body>
+</head>
+<body>
     <div class="container">
-      <h1>Add a Quote</h1>
-      <form action="/add" method="POST">
-        <div class="form-group">
-          <label for="text">Quote</label>
-          <textarea
-            class="form-control"
-            id="text"
-            name="text"
-            rows="5"
-            required
-          ></textarea>
-        </div>
-        <div class="form-group">
-          <label for="author">Author</label>
-          <input
-            type="text"
-            class="form-control"
-            id="author"
-            name="author"
-            required
-          />
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <br />
-        <a href="/" class="cancel-link">Cancel</a>
-      </form>
+        <h1>Add a Quote</h1>
+        <form action="/add" method="POST">
+            <div class="form-group">
+                <label for="text">Quote</label>
+                <textarea class="form-control" id="text" name="text" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" class="form-control" id="author" name="author" required>
+            </div>
+            <button type="submit">Add Quote</button>
+        </form>
+        <a href="/" class="cancel-link mt-3">Cancel</a>
     </div>
-  </body>
+</body>
 </html>

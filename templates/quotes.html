@@ -1,92 +1,109 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quotes</title>
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <!-- Bootstrap CSS link -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-      body {
-        background-color: #f8f9fa;
-        padding-top: 40px;
-      }
+        body {
+            background-color: #e9ecef; /* Light gray background */
+            font-family: Arial, sans-serif;
+            padding-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+        }
 
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-      }
+        .container {
+            width: 80%;
+            padding: 40px;
+            background-color: #ffffff; /* White container background */
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center-align content */
+        }
 
-      h1 {
-        text-align: center;
-        margin-bottom: 20px;
-      }
+        h1 {
+            color: #007bff; /* Blue color for heading */
+            margin-bottom: 20px;
+        }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
 
-      th,
-      td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #dee2e6;
-      }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
 
-      td:last-child {
-        white-space: nowrap;
-      }
+        td:last-child {
+            white-space: nowrap;
+        }
 
-      a {
-        color: #007bff;
-        text-decoration: none;
-        margin-left: 5px;
-      }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-      a:hover {
-        text-decoration: underline;
-      }
+        a:hover {
+            color: #0056b3; /* Darker blue on hover */
+            text-decoration: underline;
+        }
 
-      hr {
-        margin-top: 40px;
-        margin-bottom: 20px;
-      }
+        .add-link {
+            display: inline-block;
+            padding: 12px 24px;
+            margin-top: 20px;
+            background-color: #007bff; /* Blue background for button */
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-      .add-link {
-        display: block;
-        text-align: center;
-      }
+        .add-link:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: translateY(-2px);
+        }
     </style>
-  </head>
-
-  <body>
+</head>
+<body>
     <div class="container">
-      <h1>Quotes</h1>
-      <hr />
-      <table>
-        <thead>
-          <tr>
-            <th>Quote</th>
-            <th>Author</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for item in data %}
-          <tr>
-            <td>{{ item["text"] }}</td>
-            <td><em>-- {{ item["author"] }}</em></td>
-            <td>
-              [<a href="/edit/{{ item['_id'] }}">Edit</a>
-              <a href="/delete/{{ item['_id'] }}">Delete</a>]
-            </td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-      <hr />
-      <a href="/add" class="add-link">Add a new quote!</a>
+        <h1>Quotes</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Quote</th>
+                    <th>Author</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                <tr>
+                    <td>{{ item["text"] }}</td>
+                    <td><em>-- {{ item["author"] }}</em></td>
+                    <td>
+                        <a href="/edit/{{ item['_id'] }}" class="btn btn-sm btn-outline-primary mr-2">Edit</a>
+                        <a href="/delete/{{ item['_id'] }}" class="btn btn-sm btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/add" class="add-link">Add a New Quote</a>
     </div>
-  </body>
+</body>
 </html>

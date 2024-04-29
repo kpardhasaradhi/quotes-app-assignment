@@ -1,76 +1,119 @@
-<!-- login.html -->
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <!-- Bootstrap CSS link -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
-      body {
-        background-color: #f8f9fa;
-        padding-top: 40px;
-      }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-      .container {
-        max-width: 400px;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
+        .container {
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-      h1 {
-        text-align: center;
-        margin-bottom: 20px;
-      }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
 
-      form {
-        margin-bottom: 20px;
-      }
+        form {
+            margin-bottom: 20px;
+        }
 
-      .cancel-btn {
-        width: 100%;
-        background-color: #dc3545;
-        border-color: #dc3545;
-      }
+        label {
+            font-weight: bold;
+        }
 
-      .login-btn {
-        width: 100%;
-        background-color: #007bff;
-        border-color: #007bff;
-      }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
 
-      .login-btn:hover,
-      .cancel-btn:hover {
-        filter: brightness(90%);
-      }
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-      .btn-container {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-      }
+        .login-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .cancel-btn {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #dc3545;
+            border-radius: 25px;
+            background-color: transparent;
+            color: #dc3545;
+            cursor: pointer;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .cancel-btn:hover {
+            color: #fff;
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .signup-link {
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .signup-link:hover {
+            color: #0056b3;
+        }
     </style>
-  </head>
-
-  <body>
+</head>
+<body>
     <div class="container">
-      <h1>Please Login</h1>
-      <form action="/login" method="POST">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" class="form-control" id="username" name="username" />
-        </div>
-        <div class="btn-container">
-          <button type="submit" class="btn btn-primary login-btn">Login</button>
-          <a href="/" class="btn btn-secondary cancel-btn">Cancel</a>
-        </div>
-      </form>
-      <a href="./register.html" class="btn btn-link"
-        >Not registered? Sign up now!</a
-      >
+        <h1>Please Login</h1>
+        <form action="/login" method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <button type="submit" class="btn btn-primary login-btn">Login</button>
+        </form>
+        <button type="button" class="btn cancel-btn" onclick="window.location.href='/'">Cancel</button>
+        <a href="./register.html" class="signup-link d-block text-center mt-3">Not registered? Sign up now!</a>
     </div>
-  </body>
+
+    <!-- Bootstrap JS scripts (if needed) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
